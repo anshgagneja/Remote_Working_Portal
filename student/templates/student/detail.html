@@ -1,0 +1,26 @@
+{% extends "student/base.html" %}
+{% block content %}
+    {% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+    <div class="container">
+      <div class="row" style="margin-top: 60px">
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-12">
+          {% bootstrap_messages %}
+          <div class="row">
+                              <div class="card col-lg-4 col-md-6 col-sm-12" style="margin-right: 20px" >
+              <div class="card-body">
+                <h6 class="card-title"><b>Assignment:</b>{{ object.assignment}}</h6>
+                  <a href="{{ MEDIA_URL }}{{ object.upload.url }}">Uploaded assignment</a>
+                  <p class="card-text"><b>Description:</b>{{ object.description }}</p>
+                                  <p class="card-text"><b>Submitted by:</b>{{ object.assignment.user.full_name }}</p>
+                                    <p class="card-text"><b>Submitted at:</b>{{ object.submitted_at }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock%}
+

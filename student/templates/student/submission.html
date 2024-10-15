@@ -1,0 +1,27 @@
+{% extends "student/base.html" %}
+{% block content %}
+    {% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+          {% bootstrap_messages %}
+    <div class="container">
+                  <div class="row" style="margin-top: 20px">
+                          <div class="col-lg-8 col-md-9 col-sm-12">
+
+                      {% for item in submit %}
+                  <div class="col-md-4" style="margin-left:0px">
+                  <div class="card" style="margin-bottom: 10px;width: 300px">
+                                    <div class="card-body">
+                <h6 class="card-title"><b>Assignment:</b>
+                  <a href="{% url 'student:assignment-detail' item.pk%}">{{ item.assignment}}</a></h6>
+                                  <p class="card-text"><b>Submitted by:</b>{{ item.user.full_name }}</p>
+              </div>
+            </div>
+                  </div>
+        </div>
+    </div>
+                </div>
+                          </div>
+                          </div>
+                  {% endfor %}
+{% endblock%}

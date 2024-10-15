@@ -1,0 +1,34 @@
+{#{% extends "student/base.html" %}#}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+<title>
+    {% block title %}SignUp to system{% endblock %}
+</title>
+{% block content %}
+<div class="container">
+    {% bootstrap_messages %}
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-sm-10 offset-sm-1">
+            <div class="card my-5">
+                <div class="card-header text-center">
+                    Sign Up to system
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <input type="submit"
+                               class="btn btn-success text-center w-100 mb-3"
+                               value="Sign Up">
+                         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                        <a href="{% url "student:signin" %}"
+                           class="small">Sign In</a>
+                        <a href="/" class="float-right small">Home</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

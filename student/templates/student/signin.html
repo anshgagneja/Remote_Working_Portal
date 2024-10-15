@@ -1,0 +1,39 @@
+{% extends "student/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='slim' %}
+{% block content %}
+<title>
+{% block title %}Login To system{% endblock %}
+</title>
+<body style="background-image: url({% static "student/img/background.jpg" %})">
+    <div class="container">
+    {% bootstrap_messages %}
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4 col-sm-10 offset-sm-1">
+            <div class="card my-5" style="background-color: rgba(0,0,0,0.1);color: black;">
+                <div class="card-header text-center">
+                    Login to your account
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+
+                        <input type="submit" class="btn btn-success text-center w-100 mb-3" value="Sign In">
+                        <div style="text-align:center;margin-top: -15px;margin-bottom: 10px;">
+            <a class="forgot-password-link"  href="/password_reset/">Forgot password?</a>
+                        </div>
+                        <div style="text-align: center;">
+                        <a class = "btn btn-info " href="{% url "student:signup" %}"
+                           class="float-right small">Sign Up</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
